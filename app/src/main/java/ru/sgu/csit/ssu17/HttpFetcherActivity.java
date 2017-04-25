@@ -48,7 +48,6 @@ public class HttpFetcherActivity extends Activity implements LoaderManager.Loade
     private final List<Article> data = new ArrayList<>();
     private ArrayAdapter<Article> adapter;
     private FetchTask loadTask = null;
-    //private
 
 
     @Override

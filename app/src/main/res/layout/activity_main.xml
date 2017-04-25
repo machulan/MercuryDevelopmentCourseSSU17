@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="ru.sgu.csit.ssu17.MainActivity"
+
+    android:background="#F10000">
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:background="#FFF">-->
+        <!---->
+    <!--</android.support.v7.widget.Toolbar>-->
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo1_circle_tw"
+        android:adjustViewBounds="false"/>
+    <!--android:src="@drawable/logo1_300x289"-->
+    <!--android:layout_below="@+id/TextView3"-->
+
+    <TextView
+        android:id="@+id/TextViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/Logo"
+        android:layout_centerHorizontal="true"
+        android:background="#E10000"
+        android:gravity="center"
+        android:fontFamily="sans-serif"
+        android:text="Новости"
+        android:textSize="25sp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextViewHeader">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#EFEFEF">
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutNews1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="#FFF">
+
+
+                <ImageView
+                    android:layout_width="125dp"
+                    android:layout_height="75dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gagarin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ректор А.Н. Чумаченко поздравил СГУ с Днём космонавтики"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000"/>
+            </LinearLayout>
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="3dp"-->
+                <!--android:background="#777"/>-->
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutNews2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:background="#FFF">
+
+
+                <ImageView
+                    android:layout_width="125dp"
+                    android:layout_height="75dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/totaldictant" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="В СГУ прошла Всемирная акция 'Тотальный диктант'"
+                    android:gravity="left"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="3dp"-->
+                <!--android:background="#777"/>-->
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutNews3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:background="#FFF">
+
+                <ImageView
+                    android:layout_width="125dp"
+                    android:layout_height="75dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/umultirank" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Саратовский университет впервые вошёл в рейтинг U-Multirank"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#777"/>
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutNews4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:background="#FFF">
+
+                <ImageView
+                    android:layout_width="125dp"
+                    android:layout_height="75dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/startup_500x375" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Проект С.А. Климовой вошёл в 9 лучших стартапов страны"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#777"/>
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutNews5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:background="#FFF">
+
+                <ImageView
+                    android:layout_width="125dp"
+                    android:layout_height="75dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pedagogicalcompetition" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Подведены итоги педагогического конкурса 'Шаг в профессию'"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
+    <!--##############SOME##CODE##BELOW################-->
+
+
+    <!--   <TextView
+           android:id="@+id/TextView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="text view 1"
+           android:layout_toRightOf="@+id/TextView2"/>
+
+       <TextView
+           android:id="@+id/TextView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="text view 2"
+           />
+
+
+       <TextView
+           android:id="@+id/TextView3"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="text view 3"
+           android:layout_below="@+id/TextView2"
+           android:clickable="true"/>-->
+
