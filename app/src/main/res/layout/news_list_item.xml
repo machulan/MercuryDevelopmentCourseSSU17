@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:maxLines="1"
+        android:textColor="#DB000000"
+        android:textSize="14sp"
+        tools:text="В СГУ прошла Всемирная акция «Тотальный диктант»" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/title"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif"
+        android:maxLines="2"
+        android:textColor="#8B000000"
+        android:textSize="12sp"
+        tools:text="8 апреля в XI и XII корпусах Саратовского университета прошла акция проверки грамотности «Тотальный диктант». Автором текста в этом году стал писатель Леонид Юзефович. Он описал три своих любимых города: Пермь, Улан-Удэ и Санкт-Петербург. В соответствии с часовым поясом Саратову досталась третья часть – «Город на реке. Улан-Удэ. Селенга»." />
+
+    <TextView
+        android:id="@+id/pub_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/description"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
+        android:textColor="#DB000000"
+        android:textSize="12sp"
+        tools:text="10.04.17 10:32" />
+
+</RelativeLayout>

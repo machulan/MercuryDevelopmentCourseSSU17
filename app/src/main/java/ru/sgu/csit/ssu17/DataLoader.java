@@ -3,12 +3,16 @@ package ru.sgu.csit.ssu17;
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,66 +35,31 @@ public class DataLoader extends AsyncTaskLoader<List<Article>> {
     public List<Article> loadInBackground() {
 
         List<Article> articles = null;
-        StringBuilder resultString = new StringBuilder();
+        final String ssuNewsUrl = "http://www.sgu.ru/news.xml";
+
         try {
-            final String ssuNewsUrl = "http://www.sgu.ru/news.xml";
-            URL url = new URL(ssuNewsUrl);
+            String rss = new NetUtils().httpGet(ssuNewsUrl);
+            articles = new RssUtils().parseRss(rss);
 
-            //URL url = new URL(this.url);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-            try {
-                InputStream istream = conn.getInputStream();
-                ByteArrayOutputStream ostream = new ByteArrayOutputStream();
-                try {
-                    // istream.read();
-                    articles = new SSUNewsXmlParser().parse(istream);
-
-
-
-                    final String tabString = "    ";
-                    for(Article article : articles){
-                        resultString.append("<article>\n");
-                        resultString.append(tabString + "<title>" + article.title + "</title>\n");
-                        resultString.append(tabString + "<description>" + article.description + "</description>\n");
-                        resultString.append(tabString + "<pubDate>" + article.pubDate + "</pubDate>\n");
-                        resultString.append("</article>\n");
-                    }
-
-
-
-
-                    /*byte[] buf = new byte[32 * 1024];
-                    while(true){
-                        int bytesRead = istream.read(buf);
-                        if(bytesRead < 0)
-                            break;
-                        ostream.write(buf, 0, bytesRead);
-                    }
-                    res = ostream.toString("UTF-8");*/
-
-                      /*  istream.read(buf);
-                        ostream.write(buf);*/
-                } catch (XmlPullParserException e) {
-                    e.printStackTrace();
-                } finally {
-                    istream.close();
-                    ostream.close();
-                }
-
-            }finally {
-                conn.disconnect();
+            //LOGGING
+            StringBuilder resultString = new StringBuilder();
+            final String tabString = "    ";
+            for(Article article : articles){
+                resultString.append("<article>\n");
+                resultString.append(tabString + "<title>" + article.title + "</title>\n");
+                resultString.append(tabString + "<description>" + article.description + "</description>\n");
+                resultString.append(tabString + "<pubDate>" + article.pubDate + "</pubDate>\n");
+                resultString.append("</article>\n");
             }
+            Log.d("resultString", resultString.toString());
 
-
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
         }
-        //return res;
-        return articles;//resultString.toString();
+
+        return articles;
     }
 
 

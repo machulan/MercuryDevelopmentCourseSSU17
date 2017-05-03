@@ -93,7 +93,7 @@ public class HttpFetcherActivity extends Activity implements LoaderManager.Loade
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Article article = (Article) parent.getItemAtPosition(position);
-                String url = "http://www.sgu.ru/news.xml";//article.link
+                String url = article.link;//"http://www.sgu.ru/news.xml";//article.link
                 Intent openBrowserIntent = new Intent(Intent.ACTION_VIEW);
                 //List<Article> arts = new SSUNewsXmlParser().parse(url);
                 openBrowserIntent.setData(Uri.parse(url));

@@ -37,9 +37,9 @@ public class SSUNewsXmlParser {
 
             Article a1 = new Article("Географы СГУ провели областной обучающий семинар по метеорологии для учителей",
                     "Сотрудники кафедры метеорологии и климатологии географического факультета СГУ провели семинар по проведению",
-                    "2017-04-21 06:00:00");
-            Article a2 = new Article("TITLE 2", "alkdf;lakfb fds\n advv \naadddddddDDD", "15444");
-            Article a3 = new Article("TITLE 3", "DESCasdfagf", "hfirufhv");
+                    "2017-04-21 06:00:00", "http://www.sgu.ru/news/2017-05-03/delegaciya-sgu-prinyala-uchastie-v-pedagogicheskom");
+            Article a2 = new Article("TITLE 2", "alkdf;lakfb fds\n advv \naadddddddDDD", "15444", "http://www.sgu.ru/news.xml");
+            Article a3 = new Article("TITLE 3", "DESCasdfagf", "hfirufhv", "http://www.sgu.ru/news.xml");
 
             List<Article> articles = new ArrayList<Article>();
             articles.add(a1);
@@ -131,6 +131,7 @@ public class SSUNewsXmlParser {
         String title = null;
         String description = null;
         String pubDate = null;
+        String link = null;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -142,11 +143,13 @@ public class SSUNewsXmlParser {
                 description = readDescription(parser);
             } else if (name.equals("pubDate")) {
                 pubDate = readPubDate(parser);
+            } else if (name.equals("link")) {
+                link = readLink(parser);
             } else {
                 skip(parser);
             }
         }
-        return new Article(title, description, pubDate);
+        return new Article(title, description, pubDate, link);
     }
 
     // Processes title tags in the feed.
@@ -171,6 +174,14 @@ public class SSUNewsXmlParser {
         String pubDate = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "pubDate");
         return pubDate;
+    }
+
+    //extract link value
+    private String readLink(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "link");
+        String link = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "link");
+        return link;
     }
 
     // For the tags title, decription and pubDate, extracts their text values.

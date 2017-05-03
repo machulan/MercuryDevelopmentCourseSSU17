@@ -5,14 +5,26 @@ package ru.sgu.csit.ssu17;
  */
 
 public class Article {
-    public final String title;
-    public final String description;
-    public final String pubDate;
+    public String title;
+    public String description;
+    public String pubDate;
+    public String link;
+
+    public final String UNKNOWN = "UNKNOWN";
+
+    public Article(){
+        this.title = UNKNOWN;
+        this.description = UNKNOWN;
+        this.pubDate = UNKNOWN;
+        this.link = UNKNOWN;
+    }
+
     //public final String link;
-    public Article(String title, String description, String pubDate){
+    public Article(String title, String description, String pubDate, String link){
         this.title = title;
         this.description = description;
         this.pubDate = pubDate;
+        this.link = link;
     }
 
     @Override
