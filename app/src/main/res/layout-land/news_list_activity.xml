@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -8,7 +8,14 @@
     <fragment
         android:id="@+id/news_list_fragment"
         android:name="ru.sgu.csit.ssu17.NewsListFragment"
-        android:layout_width="match_parent"
+        android:layout_width="256dp"
         android:layout_height="match_parent" />
 
-</FrameLayout>
+    <fragment
+        android:id="@+id/preview_fragment"
+        android:name="ru.sgu.csit.ssu17.PreviewFragment"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

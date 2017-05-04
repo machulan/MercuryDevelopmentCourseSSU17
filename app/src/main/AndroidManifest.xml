@@ -21,7 +21,8 @@
             <!--</intent-filter>-->
         <!--</activity>-->
 
-        <activity android:name=".HttpFetcherActivity">
+
+        <activity android:name=".NewsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,13 +30,14 @@
             </intent-filter>
         </activity>
 
-        <!--<activity android:name=".NewsListActivity">-->
+
+        <!--<activity android:name=".HttpFetcherActivity">-->
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
+
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         <!--</activity>-->
-
 
     </application>
 

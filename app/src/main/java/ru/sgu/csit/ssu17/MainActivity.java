@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import ru.sgu.csit.ssu17.R;
+
 public class MainActivity extends Activity {
 
    /* @Override

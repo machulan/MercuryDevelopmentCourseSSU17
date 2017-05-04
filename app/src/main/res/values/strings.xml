@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SSU News</string>
+    <string name="ok">OK</string>
+    <string name="enter_url">Enter URL</string>
+    <string name="refresh">Refresh</string>
+</resources>

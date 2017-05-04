@@ -7,40 +7,28 @@ import android.content.Loader;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 /**
  * Created by User on 13.04.2017.
  */
 
-public class HttpFetcherActivity extends Activity implements LoaderManager.LoaderCallbacks<List<Article>> {
+public class HttpFetcherActivity extends Activity
+        implements LoaderManager.LoaderCallbacks<List<Article>> {
 
     private static final String LOG_TAG = "HttpFetcherActivity";
     private int loadedCount = 0;
