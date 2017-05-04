@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.res.Configuration;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,13 +32,22 @@ public class NewsListActivity extends Activity
 
     @Override
     public void OnArticleClicked(Article article) {
-        PreviewFragment fragment = new PreviewFragment();
-        Bundle args = new Bundle();
-        args.putString("url", article.link);
-        fragment.setArguments(args);
-        getFragmentManager().beginTransaction()
-                .add(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit();
+        // как понять
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            PreviewFragment fragment = new PreviewFragment();
+            Bundle args = new Bundle();
+            args.putString("url", article.link);
+            fragment.setArguments(args);
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        } else {
+            PreviewFragment f = (PreviewFragment) getFragmentManager()
+                    .findFragmentById(R.id.preview_fragment);
+            f.getArguments().putString("url", article.link);
+            //temp below
+            f.reload();
+        }
     }
 }

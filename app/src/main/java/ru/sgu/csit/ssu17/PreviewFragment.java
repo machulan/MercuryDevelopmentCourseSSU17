@@ -13,6 +13,11 @@ import android.webkit.WebView;
 
 public class PreviewFragment extends Fragment {
     private String url;
+    private WebView webView;
+
+    public PreviewFragment(){
+        setArguments(new Bundle());
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,8 +30,16 @@ public class PreviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.preview_fragment, container, false);
-        WebView previewWebView = (WebView) v.findViewById(R.id.preview_webview);
-        previewWebView.loadUrl(url);
+        //WebView previewWebView = (WebView) v.findViewById(R.id.preview_webview);
+        this.webView = (WebView) v.findViewById(R.id.preview_webview);
+        //previewWebView.loadUrl(url);
+        reload();
+
         return v;
+    }
+
+    public void reload(){
+        String url = getArguments().getString("url");
+        webView.loadUrl(url);
     }
 }
